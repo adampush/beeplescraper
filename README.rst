@@ -14,7 +14,7 @@ Then, after the script exits, run the next script:
 
     $ python beepledownloader.py
 
-`beeplescraper.py` will find all the "high res" image urls and write them to a
+:code:`beeplescraper.py` will find all the "high res" image urls and write them to a
 file, `image-urls.txt` in the current working directory. Then,
 `beepledownloader.py` reads the URLs from the `image-urls.txt` and downloads
 each image, saving them to a directory `beeple_images/` in the current working
