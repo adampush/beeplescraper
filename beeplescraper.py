@@ -12,8 +12,8 @@ import random
 # check the length of its "children" using len(div.find_all())
 # Or, could see if div.find_all() == []
 
-MAX_PAGES = 150
-PAGE_START = 1      # as of 2016 dec 23, the last page is 115
+MAX_PAGES = 300
+PAGE_START = 1      # as of 2023 july 4, the last page is 282
 SLEEP_TIME = 1      # seconds
 DEBUG = True
 WRITE = True        # If True, write the URLs to a text file
@@ -41,8 +41,8 @@ while not_empty and not max_pages:
         if DEBUG:
             print('Got new posts. Appending...')
 
-        for a in posts_div.find_all('a', attrs={'class': 'highres'}):
-            hires_image_url_list.append(a['href'])
+        for a in posts_div.find_all('img', attrs={'class': 'opacity-transition relative'}):
+            hires_image_url_list.append(a['data-image-retina'])
 
     max_pages = page_number - PAGE_START + 1 >= MAX_PAGES
 
