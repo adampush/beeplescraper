@@ -4,7 +4,8 @@ import random
 import time
 
 SLEEP_TIME = 2
-MAX_IMAGES = 2000
+MAX_IMAGES = 4000
+START_AT = 0
 DEBUG = True
 WRITE_FOLDER = 'beeple_images'
 IMAGE_URL_FILE = 'image-urls.txt'
@@ -25,8 +26,9 @@ if __name__ == '__main__':
 
     with open(IMAGE_URL_FILE, 'r') as url_file:
         image_number = 1
+        line_number = 0
         for image_url in url_file:
-            if image_number <= MAX_IMAGES:
+            if line_number >= START_AT and image_number <= MAX_IMAGES:
                 if DEBUG:
                     print(image_url)
 
@@ -38,3 +40,4 @@ if __name__ == '__main__':
                 if DEBUG:
                     print('Sleeping for {:.3f} seconds...'.format(sleep_time))
                 time.sleep(sleep_time)
+            line_number += 1
